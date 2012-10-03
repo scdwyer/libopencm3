@@ -52,4 +52,79 @@
 #define	IRQ_AES		22
 #define	IRQ_COUNT	23 /**< See also d0002_efm32_cortex-m3_reference_manual.pdf's table 1.1's "number of interrupts" line, which shows that there are really no more interrupts and it is sufficient to allocate only 23 slots. */
 
+#define WEAK __attribute__ ((weak))
+
+void WEAK dma_isr(void);
+void WEAK gpio_even_isr(void);
+void WEAK timer0_isr(void);
+void WEAK usart0_rx_isr(void);
+void WEAK usart0_tx_isr(void);
+void WEAK acmp01_isr(void);
+void WEAK adc0_isr(void);
+void WEAK dac0_isr(void);
+void WEAK i2c0_isr(void);
+void WEAK gpio_odd_isr(void);
+void WEAK timer1_isr(void);
+void WEAK usart1_rx_isr(void);
+void WEAK usart1_tx_isr(void);
+void WEAK lesense_isr(void);
+void WEAK leuart0_isr(void);
+void WEAK letimer0_isr(void);
+void WEAK pcnt0_isr(void);
+void WEAK rtc_isr(void);
+void WEAK cmu_isr(void);
+void WEAK vcmp_isr(void);
+void WEAK lcd_isr(void);
+void WEAK msc_isr(void);
+void WEAK aes_isr(void);
+
+#pragma weak dma_isr = blocking_handler
+#pragma weak gpio_even_isr = blocking_handler
+#pragma weak timer0_isr = blocking_handler
+#pragma weak usart0_rx_isr = blocking_handler
+#pragma weak usart0_tx_isr = blocking_handler
+#pragma weak acmp01_isr = blocking_handler
+#pragma weak adc0_isr = blocking_handler
+#pragma weak dac0_isr = blocking_handler
+#pragma weak i2c0_isr = blocking_handler
+#pragma weak gpio_odd_isr = blocking_handler
+#pragma weak timer1_isr = blocking_handler
+#pragma weak usart1_rx_isr = blocking_handler
+#pragma weak usart1_tx_isr = blocking_handler
+#pragma weak lesense_isr = blocking_handler
+#pragma weak leuart0_isr = blocking_handler
+#pragma weak letimer0_isr = blocking_handler
+#pragma weak pcnt0_isr = blocking_handler
+#pragma weak rtc_isr = blocking_handler
+#pragma weak cmu_isr = blocking_handler
+#pragma weak vcmp_isr = blocking_handler
+#pragma weak lcd_isr = blocking_handler
+#pragma weak msc_isr = blocking_handler
+#pragma weak aes_isr = blocking_handler
+
+#define IRQ_HANDLERS \
+		[IRQ_DMA] = dma_isr, \
+		[IRQ_GPIO_EVEN] = gpio_even_isr, \
+		[IRQ_TIMER0] = timer0_isr, \
+		[IRQ_USART0_RX] = usart0_rx_isr, \
+		[IRQ_USART0_TX] = usart0_tx_isr, \
+		[IRQ_ACMP01] = acmp01_isr, \
+		[IRQ_ADC0] = adc0_isr, \
+		[IRQ_DAC0] = dac0_isr, \
+		[IRQ_I2C0] = i2c0_isr, \
+		[IRQ_GPIO_ODD] = gpio_odd_isr, \
+		[IRQ_TIMER1] = timer1_isr, \
+		[IRQ_USART1_RX] = usart1_rx_isr, \
+		[IRQ_USART1_TX] = usart1_tx_isr, \
+		[IRQ_LESENSE] = lesense_isr, \
+		[IRQ_LEUART0] = leuart0_isr, \
+		[IRQ_LETIMER0] = letimer0_isr, \
+		[IRQ_PCNT0] = pcnt0_isr, \
+		[IRQ_RTC] = rtc_isr, \
+		[IRQ_CMU] = cmu_isr, \
+		[IRQ_VCMP] = vcmp_isr, \
+		[IRQ_LCD] = lcd_isr, \
+		[IRQ_MSC] = msc_isr, \
+		[IRQ_AES] = aes_isr,
+
 #endif
