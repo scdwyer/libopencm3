@@ -176,7 +176,7 @@ void WEAK qei_irqhandler(void);
 #pragma weak c_can0_irqhandler = null_handler
 #pragma weak qei_irqhandler = null_handler
 
-#define IRQ_HANDLERS\ 
+#define IRQ_HANDLERS \
 	dac_irqhandler, \
 	m0core_irqhandler, \
 	dma_irqhandler, \

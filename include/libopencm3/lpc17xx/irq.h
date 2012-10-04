@@ -28,4 +28,6 @@
 
 /* TODO: Interrupt handler weak aliases */
 
+#define IRQ_HANDLERS
+
 #endif

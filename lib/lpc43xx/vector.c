@@ -29,6 +29,8 @@ void main(void);
 
 void _pre_main(void)
 {
+	volatile unsigned *src, *dest;
+
 	/* Copy the code from ROM to Real RAM (if enabled) */
 	if( (&_etext_ram-&_text_ram) > 0 )
 	{
